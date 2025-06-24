@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <title>Tienda Gatuna</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <header>
+        <h1>🐾 Tienda Gatuna</h1>
+        <p>Todo lo que tu gato necesita</p>
+    </header>
+
+    <section class="formulario">
+        <h2>Buscar producto y agregar al carrito</h2>
+        <form id="formProducto">
+            <input type="text" id="nombre" placeholder="Nombre del producto" />
+            <button type="submit">Agregar al carrito</button>
+            <div id="errores" class="errores"></div>
+        </form>
+    </section>
+
+    <main>
+        <h2>Catálogo de Productos</h2>
+        <div id="contenedorProductos" class="contenedor-productos"></div>
+    </main>
+
+    <section>
+        <h2>Vendedores</h2>
+        <div id="contenedorVendedores" class="contenedor-vendedores"></div>
+    </section>
+    
+    <section class="contacto">
+        <h2>Información de Contacto</h2>
+        <p><strong>Dirección:</strong> Calle Gatuna 123, Ciudad Felina</p>
+        <p><strong>Teléfono:</strong> +56 9 1234 5678</p>
+        <p><strong>Email:</strong> contacto@tiendagatuna.cl</p>
+        <p><strong>Horario:</strong> Lunes a Sábado, 10:00 a 19:00 hrs.</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Tienda Gatuna</p>
+    </footer>
+
+    <div id="modalImagen" class="modal">
+        <span id="cerrarModal" class="cerrar">&times;</span>
+        <img id="imagenGrande" class="modal-contenido" src="" alt="">
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+
