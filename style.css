@@ -115,6 +115,49 @@ footer {
     color: white;
 }
 
+
+section {
+    background-color: #fff;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+}
+
+#contenedorCarrito p {
+    margin: 5px 0;
+}
+
+#seccionDatos input {
+    display: block;
+    margin: 10px auto;
+    padding: 8px;
+    width: 90%;
+    max-width: 400px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+#finalizarCompra {
+    background-color: #f67280;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+#finalizarCompra:hover {
+    background-color: #d65a67;
+}
+
+#erroresDatos {
+    color: red;
+    margin-top: 10px;
+    text-align: center;
+}
+
 .modal {
     display: none;
     position: fixed;
@@ -145,6 +188,9 @@ footer {
     cursor: pointer;
     z-index: 1001;
 }
+
+
+
 
 
 

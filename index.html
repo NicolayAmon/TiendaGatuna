@@ -29,7 +29,24 @@
         <h2>Vendedores</h2>
         <div id="contenedorVendedores" class="contenedor-vendedores"></div>
     </section>
-    
+
+<section>
+  <h2>Carrito de compras</h2>
+  <div id="contenedorCarrito"><p>El carrito está vacío.</p></div>
+  <button id="finalizarCompra">Finalizar compra</button>
+</section>
+
+<section id="seccionDatos" style="display:none; margin-top:20px;">
+  <h2>Datos para el envío</h2>
+  <form id="formDatos">
+    <input type="text" id="cliente" placeholder="Nombre completo" required />
+    <input type="text" id="direccion" placeholder="Dirección de envío" required />
+    <input type="email" id="correo" placeholder="Correo electrónico" required />
+    <button type="submit">Enviar Pedido</button>
+    <div id="erroresDatos" style="color:red; margin-top:10px;"></div>
+  </form>
+</section>
+
     <section class="contacto">
         <h2>Información de Contacto</h2>
         <p><strong>Dirección:</strong> Calle Gatuna 123, Ciudad Felina</p>
@@ -50,6 +67,9 @@
     <script src="script.js"></script>
 </body>
 </html>
+
+
+
 
 
 

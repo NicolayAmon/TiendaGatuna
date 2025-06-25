@@ -13,6 +13,8 @@ const vendedores = [
     { nombre: "Vendedor 3 - Ania", imagen: "ania.jpeg" }
 ];
 
+const carrito = [];
+
 function mostrarProductos() {
     const contenedor = document.getElementById("contenedorProductos");
     contenedor.innerHTML = "";
@@ -29,8 +31,26 @@ function mostrarProductos() {
     });
 }
 
-function agregarAlCarrito(producto) {
-    alert(`"${producto}" fue agregado al carrito`);
+function agregarAlCarrito(nombreProducto) {
+    const producto = productos.find(p => p.nombre.toLowerCase() === nombreProducto.toLowerCase());
+    if (producto) {
+        carrito.push(producto);
+        mostrarCarrito();
+        alert(`"${producto.nombre}" fue agregado al carrito`);
+    }
+}
+
+function mostrarCarrito() {
+    const contenedor = document.getElementById("contenedorCarrito");
+    contenedor.innerHTML = "";
+
+    if (carrito.length === 0) {
+        contenedor.innerHTML = "<p>El carrito está vacío.</p>";
+    } else {
+        carrito.forEach((p, index) => {
+            contenedor.innerHTML += `<p>${index + 1}. ${p.nombre} - $${p.precio}</p>`;
+        });
+    }
 }
 
 function mostrarVendedores() {
@@ -88,6 +108,43 @@ document.getElementById("formProducto").addEventListener("submit", function (e) 
     }
 });
 
+document.getElementById("finalizarCompra").addEventListener("click", () => {
+    if (carrito.length === 0) {
+        alert("Primero debes agregar productos al carrito.");
+    } else {
+        document.getElementById("seccionDatos").style.display = "block";
+        window.scrollTo(0, document.getElementById("seccionDatos").offsetTop);
+    }
+});
+
+document.getElementById("formDatos").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const nombre = document.getElementById("cliente").value.trim();
+    const direccion = document.getElementById("direccion").value.trim();
+    const correo = document.getElementById("correo").value.trim();
+    const erroresDiv = document.getElementById("erroresDatos");
+
+    let errores = [];
+
+    if (nombre === "") errores.push("El nombre es obligatorio.");
+    if (direccion === "") errores.push("La dirección es obligatoria.");
+    if (correo === "" || !correo.includes("@")) errores.push("El correo es inválido.");
+
+    if (errores.length > 0) {
+        erroresDiv.innerHTML = errores.join("<br>");
+    } else {
+        erroresDiv.innerHTML = "";
+        alert(`¡Gracias ${nombre}! Tu pedido será enviado a: ${direccion}`);
+        carrito.length = 0; 
+        mostrarCarrito();
+        document.getElementById("seccionDatos").style.display = "none";
+        this.reset();
+    }
+});
+
 mostrarProductos();
 mostrarVendedores();
+mostrarCarrito();
+
 
